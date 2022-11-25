@@ -1,0 +1,20 @@
+service: hello-lambda-serverless
+
+provider:
+  region: ap-northeast-1
+  stage: master
+  name: aws
+  runtime: go1.x
+  environment:
+    TZ: Asia/Tokyo
+
+package:
+ exclude:
+   - ./**
+ include:
+   - ./bin/**
+
+functions:
+  hello:
+    handler: bin/main
+    name: hello-lambda-serverless_function
